@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .a{
+         color: crimson;
+        }
+    </style>
+</head>
+<body>
+<a th:href="@{/show-user}">back list</a>
+
+<form th:action="@{/create-user}" th:object="${user}" method="post">
+    <input type="hidden" th:field="*{id}">
+
+    firstName<input type="text" th:field="*{firstName}">
+    <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="a"></p>
+    lastName <input type="text" th:field="*{lastName}">
+    <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="a"></p>
+    PhoneNumber<input type="text" th:field="*{phoneNumber}">(xxx-xx-xxxxxxx)
+    <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="a"></p>
+    Age  <input type="text" th:field="*{age}">
+    <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="a"></p>
+    Email   <input type="text" th:field="*{email}">
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="a"></p>
+
+  <input type="submit" value="save"></td>
+
+
+</form>
+</body>
+</html>
